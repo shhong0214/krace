@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE sqlMapConfig      
+    PUBLIC "-//ibatis.apache.org//DTD SQL Map Config 2.0//EN"      
+    "http://ibatis.apache.org/dtd/sql-map-config-2.dtd">
+
+<sqlMapConfig>
+ 	<properties resource="hmdm.properties" />
+	<sqlMap resource="com/hs/framework/mobile/mdm/dao/sqlmap/${jdbc.db.type}/common.xml"/>
+ 	<sqlMap resource="com/hs/framework/mobile/mdm/dao/sqlmap/${jdbc.db.type}/company.xml"/>	
+ 	<sqlMap resource="com/hs/framework/mobile/mdm/dao/sqlmap/${jdbc.db.type}/member.xml"/>
+	<sqlMap resource="com/hs/framework/mobile/mdm/dao/sqlmap/${jdbc.db.type}/device.xml"/>
+ 	<sqlMap resource="com/hs/framework/mobile/mdm/dao/sqlmap/${jdbc.db.type}/app.xml"/>	
+ 	<sqlMap resource="com/hs/framework/mobile/mdm/dao/sqlmap/${jdbc.db.type}/appdeviceaccess.xml"/>	
+ 	<sqlMap resource="com/hs/framework/mobile/mdm/dao/sqlmap/${jdbc.db.type}/appmemberauth.xml"/>
+ 	<sqlMap resource="com/hs/framework/mobile/mdm/dao/sqlmap/${jdbc.db.type}/devicecontrol.xml"/>
+ 	<sqlMap resource="com/hs/framework/mobile/mdm/dao/sqlmap/${jdbc.db.type}/restrictdef.xml"/>
+ 	<sqlMap resource="com/hs/framework/mobile/mdm/dao/sqlmap/${jdbc.db.type}/devicedetailinfo.xml"/>
+ 	<sqlMap resource="com/hs/framework/mobile/mdm/dao/sqlmap/${jdbc.db.type}/devicerestrictinfo.xml"/> 	
+ 	<sqlMap resource="com/hs/framework/mobile/mdm/dao/sqlmap/${jdbc.db.type}/devicehistory.xml"/> 	
+</sqlMapConfig>

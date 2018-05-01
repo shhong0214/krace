@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE sqlMap      
+    PUBLIC "-//ibatis.apache.org//DTD SQL Map 2.0//EN"      
+    "http://ibatis.apache.org/dtd/sql-map-2.dtd">
+
+<sqlMap namespace="Member">
+	<typeAlias alias="MemberVO" type="kr.co.krace.vo.MemberVO"/>
+	
+	<resultMap id="MemberResult" class="MemberVO">
+        <result property="memberId" column="memberid" />
+        <result property="memberName" column="membername" />
+        <result property="memberType" column="membertype" />        
+		<result property="password" column="password"/>
+		<result property="passwordEncoding" column="passwordencoding"/>		
+		<result property="createDate" column="createdate" />
+		<result property="modifyDate" column="modifydate" />	
+		<result property="deleted" column="deleted" />	
+    </resultMap>
+
+	<select id="select.member" parameterClass="String" resultMap="MemberResult">
+		<![CDATA[
+		select a.*
+			from cam_member a
+		 where a.membername = #memberName#
+		   and a.deleted = 'N'		   
+		]]>
+	</select>	
+
+</sqlMap>

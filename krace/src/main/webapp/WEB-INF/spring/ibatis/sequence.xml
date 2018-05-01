@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<beans 
+    xmlns="http://www.springframework.org/schema/beans" 
+    xmlns:lang="http://www.springframework.org/schema/lang" 
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+                                         http://www.springframework.org/schema/lang http://www.springframework.org/schema/lang/spring-lang.xsd">
+
+	<bean id="memberSequence" class="com.hs.framework.mobile.mdm.dao.incrementer.MdmMaxValueIncrementer">
+		<property name="dbtype" value="${jdbc.db.type}"/>
+		<property name="incrementerName" value="hmdm_member_sequence"/>
+ 		<property name="columnName" value="value"/>	
+		<property name="dataSource" ref="dataSource"/>
+	</bean>
+	
+	<bean id="deviceSequence" class="com.hs.framework.mobile.mdm.dao.incrementer.MdmMaxValueIncrementer">
+		<property name="dbtype" value="${jdbc.db.type}"/>
+		<property name="incrementerName" value="hmdm_device_sequence"/>
+ 		<property name="columnName" value="value"/>	
+		<property name="dataSource" ref="dataSource"/>
+	</bean>
+	
+	<bean id="deviceControlSequence" class="com.hs.framework.mobile.mdm.dao.incrementer.MdmMaxValueIncrementer">
+		<property name="dbtype" value="${jdbc.db.type}"/>
+		<property name="incrementerName" value="hmdm_device_control_sequence"/>
+ 		<property name="columnName" value="value"/>	
+		<property name="dataSource" ref="dataSource"/>
+	</bean>	
+	
+	<bean id="deviceRestrictdefSequence" class="com.hs.framework.mobile.mdm.dao.incrementer.MdmMaxValueIncrementer">
+		<property name="dbtype" value="${jdbc.db.type}"/>
+		<property name="incrementerName" value="hmdm_device_restrictdef_sequence"/>
+ 		<property name="columnName" value="value"/>	
+		<property name="dataSource" ref="dataSource"/>
+	</bean>			
+</beans>

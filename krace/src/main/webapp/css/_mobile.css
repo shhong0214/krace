@@ -1,0 +1,132 @@
+
+@media screen and (max-width:720px) {
+
+/* 연혁 */
+.section_details {margin-top: 30px;}
+.section_details .wrap_history {height:auto;}
+.section_details .wrap_history .inner {position:absolute; left:0; top:0; width:100%; margin-left:0;}
+.section_details .wrap_history .inner .img_cont img {position:absolute; left:0; top:-30%; text-align: center;}
+.section_details .wrap_history .inner .img_cont img.w {display: none;}
+.section_details .wrap_history .inner .img_cont img.m {display: block;}
+
+.section_details .history_1977 .img_cont1 {top:70px; left:83px; width:98px; height:134px;}
+.section_details .history_1977 .img_cont2 {top:-10px; left:50px; width:320px; height:158px;}
+.section_details .history_1977 .img_cont3 {display: none;}
+.section_details .history_1977 .img_cont1 img {width: 100%;}
+.section_details .history_1977 .img_cont2 img {width: 100%;}
+
+.section_details .history_1980 .img_cont1 {top:510px; left:27px; width:140px; height:164px;}
+.section_details .history_1980 .img_cont2 {top:320px; left:162px; width:166px; height:326px;}
+.section_details .history_1980 .img_cont3 {display: none;}
+.section_details .history_1980 .img_cont1 img,
+.section_details .history_1980 .img_cont2 img {width: 100%;}
+
+.section_details .history_1989 .img_cont1 {display: none;}
+.section_details .history_1989 .img_cont2 {top:0px; left:37px; width:259px; height:182px;}
+.section_details .history_1989 .img_cont3 {top:92px; left:180px; width:130px; height:136px;}
+.section_details .history_1989 .img_cont2 img,
+.section_details .history_1989 .img_cont3 img {width: 100%;}
+
+.section_details .history_1993 .img_cont1 {top:0; left:33px; width:295px; height:332px;}
+.section_details .history_1993 .img_cont2 {top:72px; left:215px; width:130px; height:136px;}
+.section_details .history_1993 .img_cont1 img,
+.section_details .history_1993 .img_cont2 img {width: 100%;}
+
+.section_details .history_2007 .img_cont1 {top:268px; left:15px; width:232px; height:160px;}
+.section_details .history_2007 .img_cont2 {top:215px; left:62px; width:286px; height:320px;}
+.section_details .history_2007 .img_cont1 img,
+.section_details .history_2007 .img_cont2 img {width: 100%;}
+
+.section_details .history_2010 .img_cont1 {top: 0; left:0px; width:208px; height:256px;}
+.section_details .history_2010 .img_cont2 {display: none;}
+.section_details .history_2010 .img_cont3 {top: 10px; left:170px; width:205px; height:334px;}
+.section_details .history_2010 .img_cont1 img,
+.section_details .history_2010 .img_cont3 img {width: 100%;}
+
+.section_details .history_2014 .img_cont1 {display: none;}
+.section_details .history_2014 .img_cont2 {top:0px; left:85px; width:238px; height:275px;}
+.section_details .history_2014 .img_cont3 {top:167px; left:50px; width:87px; height:134px;}
+.section_details .history_2014 .img_cont2 img,
+.section_details .history_2014 .img_cont3 img {width: 100%;}
+
+.section_details .history_2017 .img_cont1 {display: none;}
+.section_details .history_2017 .img_cont2 {top:0; left:18px; width:280px; height:325px;}
+.section_details .history_2017 .img_cont3 {top:185px; left:195px; width:124px; height:166px;}
+.section_details .history_2017 .img_cont2 img,
+.section_details .history_2017 .img_cont3 img {width: 100%;}
+
+.section_details .history_1977 .txt_cont {top:235px; left:120px;}
+.section_details .history_1980 .txt_cont {top:137px; left:0;}
+.section_details .history_1989 .txt_cont {top:231px; left:0;}
+.section_details .history_1993 .txt_cont {top:230px; left:0;}
+.section_details .history_2007 .txt_cont {top:0; left:60px;}
+.section_details .history_2010 .txt_cont {top:350px; left:15px;}
+.section_details .history_2014 .txt_cont {top:320px; left:85px;}
+.section_details .history_2017 .txt_cont {top:378px; left:16px;}
+
+.section_details .wrap_history .txt_cont:after {width:35px; height:1px;}
+.section_details .wrap_history .txt_cont p {font-size:15px; line-height:1.5;}
+.section_details .history_1977 .txt_cont p {top:160px; left: 50px;}
+.section_details .history_1980 .txt_cont p {top:75px; left:15px;}
+.section_details .history_1989 .txt_cont p {top:120px; left:90px; width: 270px;}
+.section_details .history_1993 .txt_cont p {top:205px; left:30px;}
+.section_details .history_2007 .txt_cont p {top:123px; left:70px;}
+.section_details .history_2010 .txt_cont p {top:114px; left:94px;}
+.section_details .history_2014 .txt_cont p {top:72px; left:0px;}
+.section_details .history_2017 .txt_cont p {top:74px; left:88px;}
+
+.section_details .history_1977 .txt_cont:after {top:72px; left:0px;}
+.section_details .history_1980 .txt_cont:after {top:185px; left:15px;}
+.section_details .history_1989 .txt_cont:after {top:108px; left:90px;}
+.section_details .history_1993 .txt_cont:after {top:290px; left:30px;}
+.section_details .history_2007 .txt_cont:after {top:70px; left:0;}
+.section_details .history_2010 .txt_cont:after {top:105px; left:0;}
+.section_details .history_2014 .txt_cont:after {top:160px; left:0;}
+.section_details .history_2017 .txt_cont:after {top:75px; left:0;}
+
+.section_details .history_1977 .txt_cont .year {top:0px; left:0px; width:109px; height:54px; background-size: 100% 100%;}
+.section_details .history_1980 .txt_cont .year {top:5px; left:15px; width:110px; height:54px; background-size: 100% 100%;}
+.section_details .history_1989 .txt_cont .year {top:0px; left:90px; width:109px; height:53px; background-size: 100% 100%;}
+.section_details .history_1993 .txt_cont .year {top:125px; left:30px; width:110px; height:56px; background-size: 100% 100%;}
+.section_details .history_2007 .txt_cont .year {top:5px; left:-3px; width:115px; height:44px; background-size: 100% 100%;}
+.section_details .history_2010 .txt_cont .year {top:5px; left:4px; width:115px; height:57px; background-size: 100% 100%;}
+.section_details .history_2014 .txt_cont .year {top:0; left:0; width:115px; height:55px; background-size: 100% 100%;}
+.section_details .history_2017 .txt_cont .year {top:0; left:0; width:115px; height:54px; background-size: 100% 100%;}
+
+/* 매장정보 */
+.section_shop {height: 100%; background: #fafafa}
+.section_shop .tit_shop {margin-top:130px;}
+.section_shop .tit_shop .txt_en {font-size:34px; line-height:1; font-family:Heuristica,sans-serif; text-transform:uppercase}
+.section_shop .tit_shop .txt_ko {padding-top: 30px; font-size:24px; line-height:30px;}
+.section_shop .tit_shop .txt_ko i {display: block; font-style: normal;}
+.section_shop .inp_comm {width:calc(100% - 30px); height:42px; border:1px solid #dedede;}
+.section_shop .inp_comm .inp_search {float:left; width:calc(100% - 30px); height:40px; padding:10px 20px; border:0 none;}
+.section_shop .inp_comm .btn_search {float:right; width:30px; height:40px;}
+.section_shop .inp_comm .btn_search .ico_comm {width:22px; height:22px; margin:0 auto;}
+.section_shop .link_all {width:170px; height:40px; margin:45px auto 0; font-size:12px; line-height:40px;}
+
+.shopContain {margin-top: 50px; padding-bottom: 60px;}
+.shopContain h3 {margin-top: 50px; font-size: 34px;}
+.shopContain .find_opt {width: calc(100% - 30px); margin: 25px auto 0;}
+.shopContain .find_opt dt {float: none; width: 100%;}
+.shopContain .find_opt dt select {width: 100%; height: 48px;}
+.shopContain .find_opt dd {float: none; width: 100%; margin-top: 15px; border:1px solid #dedede; overflow: hidden;}
+.shopContain .find_opt dd .inp_search {float:left; width:calc(100% - 40px); height:48px; padding:5px 0; border:0 none; text-indent: 20px;}
+.shopContain .find_opt dd .btn_search {float:right; width:40px; height:48px;}
+.shopContain .find_opt dd .btn_search .ico_comm {width:22px; height:22px; margin:0 auto; background-position:0 -150px}
+.shopContain .shopListWrap {width: 100%; margin: 25px auto 0;}
+.shopContain .shopListWrap .type {display: none;}
+
+.shopContain .shopListWrap .borad {border-top: 2px solid #b4b4b4; border-bottom: 1px solid #dedede;}
+.shopContain .shopListWrap .borad dl {padding: 15px 0; margin: 0 15px; border-bottom: 1px solid #dedede;}
+.shopContain .shopListWrap .borad dt {margin-bottom: 5px; font-size: 15px; line-height: 15px;}
+.shopContain .shopListWrap .borad dt p {float: left; width: auto; height: 15px; padding: 0 15px; margin-right: 10px; border-right: 1px solid #363636;}
+.shopContain .shopListWrap .borad dt span {float: left;}
+.shopContain .shopListWrap .borad dd {margin-bottom: 15px; padding-left: 15px; font-size: 14px; line-height: 20px;}
+.shopContain .shopListWrap .borad .btn_map {position: relative; right: 0; bottom: 0; display: inline-block; width: 100%; height: 40px; padding-right: 16px; font-size: 12px; background:#fafafa url(../images/btn_map.gif) 57% 50% no-repeat; text-align: center; line-height: 40px;}
+.shopContain .shopListWrap .borad .no_result {padding: 150px 0 200px;}
+.shopContain .shopListWrap .borad .no_result p {font-size: 16px;}
+.shopContain .shopListWrap .borad .no_result span {font-size: 15px;}
+.shopContain .shopListWrap .btn_more a {width: 170px; height: 40px; font-size: 12px; line-height: 40px;}
+
+}

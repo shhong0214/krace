@@ -1,0 +1,172 @@
+
+.section_motto {position:relative; padding-top: 20px; background: #000;}
+.section_motto .visual {position: relative; padding-bottom: 56.25%; /* 16/9 ratio */
+    padding-top: 30px; /* IE6 workaround*/ height: 0; overflow: hidden; margin: 0;}
+.section_motto iframe,
+.section_motto object,
+.section_motto embed {position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: 0;}
+.section_motto .visual img {display:block; width:100%; height:auto; min-height:900px;}
+
+.section_motto .inner {position:absolute; top:0; left:50%; width:1200px; height:100%; margin-left:-600px; z-index: 999;}
+.section_motto .box_motto {position:absolute; bottom:115px; left:90px; color:#fff}
+.section_motto .box_motto:after {display:block; position:absolute; top:-45px; left:0; width:70px; height:2px; background-color:#fff; content:""}
+.section_motto .box_motto .tit_motto {margin-bottom:20px; font-size:60px; line-height:1.2; font-family:Heuristica,sans-serif; text-transform:uppercase;}
+.section_motto .box_motto .txt_motto {font-weight:300; font-size:30px;}
+
+.section_history {position:relative; height:1170px; background: #000 url(../images/bg_line.png) 0 790px repeat-x; ;}
+/*.section_history:after {display:block; position:absolute; top:790px; left:0; content:"";}*/
+.section_history .inner {padding-top:790px; background:url('../images/bg_emblem.png') no-repeat 50% 340px;}
+.section_history .list_history {position:relative; width:100%; height:3px; margin-bottom:120px;}
+.section_history .list_history li {position:absolute; top:-40px; display: inline-block; width:80px; height:80px;}
+.section_history .list_history .year1 {left:-11px;}
+.section_history .list_history .year2 {left:80px}
+.section_history .list_history .year3 {left:350px}
+.section_history .list_history .year4 {left:470px}
+.section_history .list_history .year5 {left:890px}
+.section_history .list_history .year6 {left:980px}
+.section_history .list_history .year7 {left:1100px}
+.section_history .list_history .year8 {left:1190px}
+.section_history .list_history a {display:block; overflow:hidden; width:100%; height:100%; z-index: 999;}
+.section_history .list_history .point {display:block; width:13px; height:13px; margin:34px; border-radius:50%; background-color:#99713e;}
+.section_history .list_history .num_year {position:absolute; top:0px; left:15px; font-size:20px; line-height:1.2; font-family:Heuristica,sans-serif; color:#99713e}
+.section_history .list_history .txt_cont {display:none; position:absolute; top:65px; left:-10px; width:200px; font-size:16px; line-height:1.25; color:#ccc}
+.section_history .year1 .txt_cont {left:-30px}
+.section_history .year4 .txt_cont {left:-35px}
+.section_history .year6 .txt_cont {left:-40px}
+.section_history .year7 .txt_cont {left:-40px}
+.section_history .year8 .txt_cont {left:-10px}
+.section_history .list_history li:hover a .point {width:23px; height:23px; margin:28px; background-color:#ccc; z-index: 999;}
+.section_history .list_history li:hover a .num_year {top:-15px; left:10px; font-size:24px; color:#ccc}
+.section_history .list_history li:hover a .txt_cont {display:block;} 
+.section_history .txt_history {display:block; margin-bottom:28px; font-size:36px; line-height:1.2; font-family:Heuristica,sans-serif; color:#ccc; text-align:center;}
+.section_history .txt_history span {display:block; margin-bottom:10px; font-size:21px;}
+.section_history .link_more {display:block; width:270px; height:70px; margin:0 auto; border:1px solid #808080; font-size:18px; line-height:70px; color:#808080; text-align:center;}
+
+/* 추가 및 수정 */
+.section_details {background-color:#222; position:relative; height:8640px;}
+.section_details .wrap_history {height:1080px; position:absolute; left:0; top:0; width:100%;}
+.section_details .wrap_history .inner {position:absolute; left:50%; top:0; width:1200px; margin-left:-600px;}
+.section_details .wrap_history .txt_cont {position:absolute; width:100%;}
+.section_details .wrap_history .inner .img_cont {overflow:hidden;}
+.section_details .wrap_history .inner .img_cont img {position:absolute; left:0; top:-50%; text-align: center;}
+/* 추가 및 수정 */
+
+.section_details .wrap_history .img_cont {position:absolute; box-shadow:3px 3px 20px rgba(0,0,0,0.5);}
+.section_details .history_1977 .img_cont1 {top:139px; left:0; z-index:20; width:292px; height:404px;}
+.section_details .history_1977 .img_cont2 {top:29px; left:205px; z-index:10; width:790px; height:368px;}
+.section_details .history_1977 .img_cont3 {top:0; left:834px; width:366px; height:288px;}
+
+.section_details .history_1980 .img_cont1 {top:564px; left:259px; z-index:20; width:375px; height:408px;}
+.section_details .history_1980 .img_cont2 {top:118px; left:600px; z-index:10; width:376px; height:736px;}
+.section_details .history_1980 .img_cont3 {top:354px; left:823px; width:377px; height:392px;}
+
+.section_details .history_1989 .img_cont1 {top:13px; left:0; width:377px; height:392px;}
+.section_details .history_1989 .img_cont2 {top:85px; left:165px; z-index:10; width:905px; height:438px;}
+.section_details .history_1989 .img_cont3 {top:124px; left:888px; width:313px; height:530px;}
+
+.section_details .history_1993 .img_cont1 {top:124px; left:-84px; z-index:10; width:623px; height:624px;}
+.section_details .history_1993 .img_cont2 {top:65px; left:516px; width:377px; height:341px;}
+
+.section_details .history_2007 .img_cont1 {top:630px; left:283px; z-index:10; width:374px; height:288px;}
+.section_details .history_2007 .img_cont2 {top:394px; left:609px; width:578px; height:572px;}
+
+.section_details .history_2010 .img_cont1 {top:18px; left:-25px; width:377px; height:392px;}
+.section_details .history_2010 .img_cont2 {top:27px; left:240px; z-index:10; width:624px; height:624px;}
+.section_details .history_2010 .img_cont3 {top:90px; left:644px; z-index:20; width:530px; height:626px;}
+
+.section_details .history_2014 .img_cont1 {top:287px; left:34px; width:354px; height:408px;}
+.section_details .history_2014 .img_cont2 {top:132px; left:246px; z-index:10; width:782px; height:356px;}
+.section_details .history_2014 .img_cont3 {top:86px; left:857px; width:377px; height:353px;}
+
+.section_details .history_2017 .img_cont1 {top:52px; left:-69px; width:354px; height:408px;}
+.section_details .history_2017 .img_cont2 {top:95px; left:165px; z-index:10; width:782px; height:426px;}
+.section_details .history_2017 .img_cont3 {top:286px; left:814px; z-index:20; width:317px; height:412px;}
+
+.section_details .history_1977 .txt_cont {top:466px; left:414px;}
+.section_details .history_1980 .txt_cont {top:137px; left:0;}
+.section_details .history_1989 .txt_cont {top:438px; left:90px;}
+.section_details .history_1993 .txt_cont {top:580px; left:759px;}
+.section_details .history_2007 .txt_cont {top:312px; left:-79px;}
+.section_details .history_2010 .txt_cont {top:606px; left:83px;}
+.section_details .history_2014 .txt_cont {top:621px; left:475px;}
+.section_details .history_2017 .txt_cont {top:618px; left:-104px;}
+
+.section_details .wrap_history .year {display:block; position:absolute; z-index:50;}
+.section_details .wrap_history .txt_cont:after {position:absolute; top:0; left:0; width:70px; height:2px; background-color:#fff; content:""}
+.section_details .wrap_history .txt_cont p {position:absolute; font-weight:200; font-size:24px; line-height:1.5; color:#fff; letter-spacing:-0.5px;}
+.section_details .wrap_history .txt_cont p strong {font-weight:400;}
+.section_details .history_1977 .txt_cont p {top:261px; left:327px;}
+.section_details .history_1980 .txt_cont p {top:208px; left:0;}
+.section_details .history_1989 .txt_cont p {top:211px; left:144px;}
+.section_details .history_1993 .txt_cont p {top:262px; left:10px;}
+.section_details .history_2007 .txt_cont p {top:222px; left:-2px;}
+.section_details .history_2010 .txt_cont p {top:210px; left:560px;}
+.section_details .history_2014 .txt_cont p {top:258px; left:362px;}
+.section_details .history_2017 .txt_cont p {top:260px; left:266px;}
+
+.section_details .history_1977 .txt_cont:after {top:217px; left:0;}
+.section_details .history_1980 .txt_cont:after {top:436px; left:0;}
+.section_details .history_1989 .txt_cont:after {top:219px; left:0;}
+.section_details .history_1993 .txt_cont:after {top:218px; left:12px;}
+.section_details .history_2007 .txt_cont:after {top:178px; left:0;}
+.section_details .history_2010 .txt_cont:after {top:218px; left:7px;}
+.section_details .history_2014 .txt_cont:after {top:214px; left:7px;}
+.section_details .history_2017 .txt_cont:after {top:216px; left:7px;}
+
+.section_details .history_1977 .txt_cont .year {top:5px; left:29px; width:306px; height:162px; background:url('../images/history_year_1.png') no-repeat 0 0;}
+.section_details .history_1980 .txt_cont .year {top:5px; left:0; width:306px; height:162px; background:url('../images/history_year_2.png') no-repeat 0 0;}
+.section_details .history_1989 .txt_cont .year {top:6px; left:0; width:304px; height:164px; background:url('../images/history_year_3.png') no-repeat 0 0;}
+.section_details .history_1993 .txt_cont .year {top:5px; left:8px; width:303px; height:164px; background:url('../images/history_year_4.png') no-repeat 0 0;}
+.section_details .history_2007 .txt_cont .year {top:5px; left:-3px; width:322px; height:126px; background:url('../images/history_year_5.png') no-repeat 0 0;}
+.section_details .history_2010 .txt_cont .year {top:5px; left:4px; width:321px; height:166px; background:url('../images/history_year_6.png') no-repeat 0 0;}
+.section_details .history_2014 .txt_cont .year {top:5px; left:4px; width:321px; height:159px; background:url('../images/history_year_7.png') no-repeat 0 0;}
+.section_details .history_2017 .txt_cont .year {top:5px; left:4px; width:322px; height:162px; background:url('../images/history_year_8.png') no-repeat 0 0;}
+
+.section_mtm {height:1080px; background:url('../images/bg_service.jpg') no-repeat 50%; background-size:cover;}
+.section_mtm .inner {overflow:hidden;}
+.section_mtm .box_cont {position:relative; margin:400px 0 0 90px; font-weight:300; font-size:30px; color:#fff}
+.section_mtm .box_cont:after {position:absolute; bottom:-50px; left:0; width:80px; height:2px; background-color:#fff; content:""}
+.section_mtm .box_cont .tit_mtm {display: block; font-size:60px; line-height:1; font-family:Heuristica,sans-serif;}
+.section_mtm .box_cont .txt_mtm {}
+.section_mtm .txt_desc {position:absolute; bottom:180px; right:80px; width:650px; font-weight:300; font-size:24px; color:#fff; letter-spacing:-1px;}
+
+.section_shop {height: 1080px; background-color:#fff;}
+.section_shop .inner {overflow:hidden;}
+.section_shop .tit_shop {display:block; margin-top:290px; color:#363636; text-align:center}
+.section_shop .tit_shop .txt_en {display:block; font-weight:300; font-size:60px; line-height:1; font-family:Heuristica,sans-serif; text-transform:uppercase}
+.section_shop .tit_shop .txt_ko {display:block; font-weight:300; font-size:48px; line-height:1;}
+.section_shop .inp_comm {width:680px; height:50px; margin:80px auto 0; border:1px solid #dedede}
+.section_shop .inp_comm .inp_search {float:left; width:620px; height:48px; padding:5px 20px; border:0 none;}
+.section_shop .inp_comm .btn_search {float:right; width:58px; height:48px; background: #fff;}
+.section_shop .inp_comm .btn_search .ico_comm {width:22px; height:22px; margin:0 auto; background-position:0 -150px}
+.section_shop .link_all {display:block; width:270px; height:70px; margin:90px auto 0; font-size:18px; line-height:70px; background-color:#f2f2f2; color:#363636; text-align:center}
+
+.shopContain {position: relative; margin-top: 70px; padding-bottom: 100px; height: auto; background: #fdfdfd; overflow: hidden;}
+.shopContain h3 {margin-top: 90px; font-size: 60px; font-family:Heuristica,sans-serif; font-weight: normal; color: #363636; text-align: center; line-height: 0.9em;}
+.shopContain .find_opt {width: 680px; margin: 55px auto 0;}
+.shopContain .find_opt:after {content: ""; display: block; clear: both;}
+.shopContain .find_opt dt {float: left; width: 180px;}
+.shopContain .find_opt dt select {width: 160px; height: 50px; border: 1px solid #dedede; text-indent: 20px;}
+.shopContain .find_opt dd {float: left; width: 500px; border:1px solid #dedede;}
+.shopContain .find_opt dd .inp_search {float:left; width:440px; height:48px; padding:5px 0; border:0 none; text-indent: 20px;}
+.shopContain .find_opt dd .btn_search {float:left; width:58px; height:48px;}
+.shopContain .find_opt dd .btn_search .ico_comm {width:22px; height:22px; margin:0 auto; background-position:0 -150px}
+.shopContain .shopListWrap {width: 1020px; margin: 0 auto;}
+.shopContain .shopListWrap .type {width: 100%; margin: 95px 0 20px 30px;}
+.shopContain .shopListWrap .type:after {content: ""; display: block; clear: both;}
+.shopContain .shopListWrap .type li {float: left; height: 18px; padding: 0 16px; border-right: 2px solid #ccc; line-height: 18px;}
+.shopContain .shopListWrap .type li a {font-size: 16px;}
+.shopContain .shopListWrap .borad {border-top: 2px solid #555; border-bottom: 1px solid #e1e1e1;}
+.shopContain .shopListWrap .borad dl {position: relative; padding: 15px 0; border-bottom: 1px solid #e1e1e1;}
+.shopContain .shopListWrap .borad dl:last-child {border-bottom: 0;}
+.shopContain .shopListWrap .borad dt:after {content: ""; display: block; clear: both;}
+.shopContain .shopListWrap .borad dt {margin-bottom: 10px; font-size: 16px; color: #363636}
+.shopContain .shopListWrap .borad dt p {float: left; width: 150px; text-align: center;}
+.shopContain .shopListWrap .borad dt span {float: left;}
+.shopContain .shopListWrap .borad dd {padding-left: 150px; font-size: 16px; color: #777; line-height: 24px;}
+.shopContain .shopListWrap .borad .btn_map {position: absolute; right: 50px; bottom: 20px; padding-right: 16px; font-size: 14px; color: #777; background: url(../images/btn_map.gif) right 50% no-repeat;}
+.shopContain .shopListWrap .borad .no_result {padding: 150px 0 200px; text-align: center;}
+.shopContain .shopListWrap .borad .no_result p {font-size: 24px; color: #363636;}
+.shopContain .shopListWrap .borad .no_result span {font-size: 16px; color: #777;}
+.shopContain .shopListWrap .btn_more {margin-top: 25px; text-align: center;}
+.shopContain .shopListWrap .btn_more a {display: inline-block; width: 270px; height: 70px; background: #f2f2f2; font-size: 18px; color: #363636; line-height: 70px;}

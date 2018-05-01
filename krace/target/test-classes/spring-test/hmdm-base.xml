@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+		xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+		xmlns:aop="http://www.springframework.org/schema/aop"
+		xmlns:context="http://www.springframework.org/schema/context"
+		xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.0.xsd
+						http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-3.0.xsd
+						http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-3.0.xsd">
+						  		
+ 	<context:annotation-config />
+	<context:component-scan base-package="com.hs.framework.mobile.mdm.web.security"/>
+ 
+	<bean class="org.springframework.security.authentication.encoding.ShaPasswordEncoder" id="passwordEncoder"/>
+
+	<bean class="org.springframework.security.authentication.dao.ReflectionSaltSource" id="saltSource">
+		<property name="userPropertyToUse" value="salt"/>
+	</bean>
+
+	<bean id="mdmLicense" class="com.hs.framework.mobile.mdm.web.security.license.MdmLicense" init-method="init">
+		<property name="licenseLocation" value="classpath:spring-test/license.lic"/>
+		<property name="keyLocation" value="classpath:spring-test/decrypt.key"/>
+	</bean>
+	
+	<bean id="mdmProperties" class="org.springframework.beans.factory.config.PropertiesFactoryBean">  
+		<property name="location" value="classpath:hmdm.properties" />  
+	</bean> 
+	
+    <bean class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">
+        <property name="properties" ref="mdmProperties" />
+        <property name="ignoreUnresolvablePlaceholders" value="true" />
+    </bean>	
+    	
+	<import resource="./ibatis/ibatis-context.xml"/>
+</beans>

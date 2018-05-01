@@ -1,0 +1,123 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE sqlMap      
+    PUBLIC "-//ibatis.apache.org//DTD SQL Map 2.0//EN"      
+    "http://ibatis.apache.org/dtd/sql-map-2.dtd">
+
+<sqlMap namespace="Store">
+	<typeAlias alias="StoreVO" type="kr.co.krace.vo.StoreVO"/>
+	<typeAlias alias="StoreTypeCntVO" type="kr.co.krace.vo.StoreTypeCntVO"/>
+	<typeAlias alias="StoreDistanceVO" type="kr.co.krace.vo.StoreDistanceVO"/>
+	
+	<resultMap id="StoreResult" class="StoreVO">
+        <result property="storeId" column="storeid"/>
+        <result property="storeName" column="storename" />
+        <result property="storeType" column="storetype"/>
+        <result property="storeAddress" column="storeaddress" />
+        <result property="storeTel" column="storetel"/>
+        <result property="deleted" column="deleted" />
+    </resultMap>
+    
+    <resultMap id="StoreTypeCntResult" class="StoreTypeCntVO">
+        <result property="type" column="storetype"/>
+        <result property="cnt" column="cnt" />
+    </resultMap>
+    
+    <resultMap id="StoreDistanceResult" class="StoreDistanceVO">
+    	<result property="storeId" column="storeid"/>
+        <result property="latitude" column="latitude"/>
+        <result property="longitude" column="longitude" />
+    </resultMap>
+	
+	<sql id="select.store">
+    	<![CDATA[
+		select a.storeid, a.storetype, a.storename, a.storeaddress, a.storetel,  a.deleted
+        from cam_store a
+        where a.deleted = 'N'
+		]]>
+		<isNotNull property="storeType">
+			<![CDATA[
+				and a.storetype = #storeType# 
+			]]>
+		</isNotNull>
+		<isNotNull property="cityName">
+			<![CDATA[
+				and a.storeaddress like #cityName#
+			]]>
+		</isNotNull>
+		<isNotNull property="searchValue">
+			<![CDATA[
+				and (a.storename like #searchValue#
+				or a.storeaddress like #searchValue#)
+			]]>
+		</isNotNull>
+
+    </sql>
+
+	<select id="count.select.storeList" parameterClass="java.util.Map" resultClass="int">
+	  	<include refid="TotalCount_Start"/>
+	  	<include refid="select.store"/>
+	  	<include refid="TotalCount_End"/>
+    </select>
+	
+	<select id="page.select.storeList" parameterClass="java.util.Map" resultMap="StoreResult">
+	  	<include refid="select.store"/>
+	  	<![CDATA[
+			order by
+			(
+			case a.storetype
+			when 'DIRECT_MANAGEMENT_STORE' then 1
+			when 'DEPARTMENT' then 2
+			when 'OUTLET' then 3
+			else 4
+			end
+			),
+			a.storename
+		]]>
+	  	<include refid="Paging"/>
+    </select>
+    
+    <select id="select.store.by.storeid" parameterClass="Integer" resultMap="StoreResult">
+		<![CDATA[
+			select a.storeid, a.storetype, a.storename, a.storeaddress, a.storetel,  a.deleted
+	        from cam_store a
+	        where a.deleted = 'N'
+			and a.storeId = #storeId# 
+		]]>
+    </select>
+    
+    <select id="select.storeTypeCnt" parameterClass="java.util.Map" resultMap="StoreTypeCntResult">
+		<![CDATA[
+			select a.storetype, count(storetype) cnt
+	        from cam_store a
+	        where a.deleted = 'N'
+		]]>
+		<isNotNull property="storeType">
+			<![CDATA[
+				and a.storetype = #storeType# 
+			]]>
+		</isNotNull>
+		<isNotNull property="cityName">
+			<![CDATA[
+				and a.storeaddress like #cityName#
+			]]>
+		</isNotNull>
+		<isNotNull property="searchValue">
+			<![CDATA[
+				and (a.storename like #searchValue#
+				or a.storeaddress like #searchValue#)
+			]]>
+		</isNotNull>
+		<![CDATA[
+				group by a.storetype
+		]]>
+    </select>
+    
+    <select id="select.store.distance" resultMap="StoreDistanceResult">
+		<![CDATA[
+			select a.storeid, a.latitude, a.longitude
+	        from cam_store_distance a, cam_store b
+	        where b.deleted = 'N'
+			and a.storeid = b.storeid
+		]]>
+    </select>
+</sqlMap>
