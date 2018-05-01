@@ -24,6 +24,7 @@ public class ApplicationContextProvider implements ApplicationContextAware {
 
 	public static Object getBean(Class type) throws BeansException {
 		return BeanFactoryUtils.beanOfType(applicationContext, type);
+		
 	}	
 
 
