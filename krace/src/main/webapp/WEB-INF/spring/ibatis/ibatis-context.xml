@@ -28,7 +28,6 @@
 		<property name="configLocation" value="/WEB-INF/spring/ibatis/SqlMapConfig.xml" />
 	</bean>
 	
-	<bean id="StoreDAO" class="kr.co.krace.dao.StoreDAO" autowire="byType"/>	
 	<bean id="memberDAO" class="kr.co.krace.dao.MemberDAO" autowire="byType"/> 
 	
 				
