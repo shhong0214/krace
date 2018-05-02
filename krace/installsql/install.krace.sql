@@ -1,7 +1,7 @@
 DROP TABLE IF EXISTS `kra`.`kra_member`;
 DROP TABLE IF EXISTS `kra`.`horseowner`;
 DROP TABLE IF EXISTS `kra`.`horseowner_own`;
-DROP TABLE IF EXISTS `kra`.`horseowner_victoryrace`;
+DROP TABLE IF EXISTS `kra`.`horseowner_victory`;
 
 CREATE TABLE `kra`.`kra_member` (
 	`memberid` VARCHAR(50) NOT NULL ,
@@ -21,7 +21,7 @@ CREATE TABLE `kra`.`horseowner` (
 	`addhorsecnt` INT,
 	`delhorsecnt` INT,
 	`totalhorsecnt` INT,
-	`reddate` DATETIME,
+	`regdate` DATETIME,
 	`newrecord` VARCHAR(50),
 	`newmoney` VARCHAR(50),
 	`totalrecord` VARCHAR(50),
@@ -37,8 +37,7 @@ CREATE TABLE `kra`.`horseowner_own` (
 	`horsename` VARCHAR(50),
 	`trainername` VARCHAR(50),
 	`period` VARCHAR(50),
-	`etc` VARCHAR(100),
-	PRIMARY KEY (`horseownerid`)
+	`etc` VARCHAR(100)
 );
 
 CREATE TABLE `kra`.`horseowner_victory` (
@@ -46,8 +45,7 @@ CREATE TABLE `kra`.`horseowner_victory` (
 	`racedate` VARCHAR(20),	
 	`round` VARCHAR(10),
 	`racename` VARCHAR(50),
-	`horsename` VARCHAR(50),
-	PRIMARY KEY (`horseownerid`)
+	`horsename` VARCHAR(50)
 );
 
 

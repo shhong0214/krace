@@ -29,6 +29,9 @@
 	</bean>
 	
 	<bean id="memberDAO" class="kr.co.krace.dao.MemberDAO" autowire="byType"/> 
+	<bean id="HorseOwnerDAO" class="kr.co.krace.dao.HorseOwnerDAO" autowire="byType"/> 
+	<bean id="HorseOwnerOwnDAO" class="kr.co.krace.dao.HorseOwnerOwnDAO" autowire="byType"/> 
+	<bean id="HorseOwnerVictoryDAO" class="kr.co.krace.dao.HorseOwnerVictoryDAO" autowire="byType"/> 
 	
 				
 	<bean id="transactionManager" class="org.springframework.jdbc.datasource.DataSourceTransactionManager">

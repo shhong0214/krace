@@ -41,7 +41,7 @@
 				<li><a href="">경주마정보</a></li>
 				<li><a href="">기수정보</a></li>
 				<li><a href="">조교사정보</a></li>
-				<li><a href="">마주정보</a></li>
+				<li><a href="horseownerList/1">마주정보</a></li>
 			</ul>
 		</li>
 		<li><a href="">운영자메뉴</a>

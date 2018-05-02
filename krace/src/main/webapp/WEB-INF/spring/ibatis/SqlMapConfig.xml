@@ -7,6 +7,8 @@
 	<properties resource="krace.properties" />
 
 	<sqlMap resource="kr/co/krace/dao/sqlmap/${jdbc.db.type}/common.xml"/>
-	<sqlMap resource="kr/co/krace/dao/sqlmap/${jdbc.db.type}/store.xml"/>
+	<sqlMap resource="kr/co/krace/dao/sqlmap/${jdbc.db.type}/horseowner.xml"/>
+	<sqlMap resource="kr/co/krace/dao/sqlmap/${jdbc.db.type}/horseowner_own.xml"/>
+ 	<sqlMap resource="kr/co/krace/dao/sqlmap/${jdbc.db.type}/horseowner_victory.xml"/>
  	
 </sqlMapConfig>

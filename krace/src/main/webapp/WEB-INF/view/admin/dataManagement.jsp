@@ -10,18 +10,24 @@
 <script type="text/javascript">
 
 function updateHorseOwner() {
+	
+	$("#statusDiv").html("업데이트 중입니다. 잠시만 기다리세요...");
+	
 	$.ajax({
 		url: 'updateHorseOwner.do',
 		type: 'POST',
-		contentType: "application/xml; charset=UTF-8",
-		datatype: 'xml',
+		data: {
+			meet: "1"
+		},
 		success:function(data) {
 			var resultCode = $(data).find("resultCode").text();
 			if (resultCode == "0") {
 				alert("성공");
+				$("#statusDiv").html("");
 			}
 			else {
 				alertErrorMsg(resultCode);
+				$("#statusDiv").html("");
 			}
 		}
 	});
@@ -84,7 +90,7 @@ function updateHorseOwner() {
 
 
 
-
+<div id="statusDiv"></div>
 
 
 </div>

@@ -41,6 +41,8 @@ public class AdminService {
         	if (ownerList.get(i).select("td").size() == 10) {
         		HorseOwnerVO vo = new HorseOwnerVO();
         		
+        		vo.setMeet(meet);
+        		
         		Elements tdList = ownerList.get(i).select("td");
         		
         		Element td1 = tdList.get(1).select("a").first();
@@ -95,7 +97,10 @@ public class AdminService {
     			System.out.println("마주: " + vo.getName() + " 상세 정보 가져오기 시작!");
     			
     			// 마주 상세 정보
-    			getHorseOwnerDetail(meet, vo.getId());
+    			HorseOwnerVO details = getHorseOwnerDetail(meet, vo.getId());
+    			
+    			vo.setOwnList(details.getOwnList());
+    			vo.setVictoryList(details.getVictoryList());
     			
     			System.out.println("마주: " + vo.getName() + " 상세 정보 가져오기 끝!");
     			
@@ -152,6 +157,7 @@ public class AdminService {
 				id = id.substring(id.indexOf("'")+1);
 				id = id.substring(0, id.indexOf("'"));
 				
+				ownVO.setHorseOwnerId(owNo);
 				ownVO.setHorseId(id);
 				ownVO.setHorseName(td1.ownText());
 				ownVO.setTrainerName(em.select("td").get(6).ownText());
@@ -178,6 +184,8 @@ public class AdminService {
         		 tmp = tmp.replaceAll("\"", "");
         		 
         		 String[] tmpArr = tmp.split(",");
+        		 
+        		 vicVO.setHorseOwnerId(owNo);
         		 
         		 vicVO.setRaceDate(tmpArr[1]);
         		 vicVO.setRound(tmpArr[2]);

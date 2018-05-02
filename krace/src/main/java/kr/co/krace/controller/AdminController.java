@@ -21,7 +21,12 @@ import kr.co.krace.common.KRaceConstants;
 import kr.co.krace.exception.KRaceException;
 import kr.co.krace.security.KRaceAuthenticationException;
 import kr.co.krace.service.AdminService;
+import kr.co.krace.service.HorseOwnerOwnService;
+import kr.co.krace.service.HorseOwnerService;
+import kr.co.krace.service.HorseOwnerVictoryService;
+import kr.co.krace.vo.HorseOwnerOwnVO;
 import kr.co.krace.vo.HorseOwnerVO;
+import kr.co.krace.vo.HorseOwnerVictoryVO;
 import kr.co.krace.vo.restservice.ResponseVO;
 
 @Controller
@@ -29,6 +34,16 @@ public class AdminController extends BaseController {
 	
 	@Autowired
 	AdminService adminService;
+	
+	@Autowired
+	HorseOwnerService ownerService;
+	
+	@Autowired
+	HorseOwnerOwnService ownerOwnService;
+	
+	@Autowired
+	HorseOwnerVictoryService ownerVictoryService;
+	
 	
 	@RequestMapping(value="/dataManagement", method=RequestMethod.GET)
 	public String raceManagement(HttpServletResponse response) {
@@ -77,18 +92,44 @@ public class AdminController extends BaseController {
 	
 	
 	@RequestMapping(value="/updateHorseOwner.do", method=RequestMethod.POST)
-	public @ResponseBody ResponseVO updateHorseOwner()
+	public @ResponseBody ResponseVO updateHorseOwner(HttpServletRequest request)
 	{
 		int resultCode = 0;
 		String resultMessage = "";
 		
+		String meet = request.getParameter("meet");
+		
 		try {
-			ArrayList<HorseOwnerVO> list = adminService.getHorseOwnerList("1");
+			ArrayList<HorseOwnerVO> list = adminService.getHorseOwnerList(meet);
 			
-//			for (HorseOwnerVO vo : list) {
-//				adminService.getHorseOwnerDetail(vo);
-//			}
+			ownerService.deleteHorseOwner(meet);
 			
+			for (HorseOwnerVO vo : list) {
+				ownerService.insertHorseOwner(vo);
+				
+				// 소유 현황
+				ownerOwnService.deleteHorseOwnerOwn(vo.getId());
+				ArrayList<HorseOwnerOwnVO> ownlist = vo.getOwnList();
+				
+				if (ownlist != null) {
+					for (HorseOwnerOwnVO own : ownlist) {
+						if (own != null)
+							ownerOwnService.insertHorseOwnerOwn(own);
+					}
+				}
+				
+				// 우승 현황
+				ownerVictoryService.deleteHorseOwnerVictory(vo.getId());
+				ArrayList<HorseOwnerVictoryVO> victoryList = vo.getVictoryList();
+				
+				if (victoryList != null) {
+					for (HorseOwnerVictoryVO victory : victoryList) {
+						if (victory != null)
+							ownerVictoryService.insertHorseOwnerVictory(victory);
+					}
+				}
+				
+			}
 			
 			System.out.println(list.size());
 			
