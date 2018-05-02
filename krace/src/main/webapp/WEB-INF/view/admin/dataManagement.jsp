@@ -8,7 +8,24 @@
 <title>KRace</title>
 <script type="text/javascript" src="<c:url value="/js/jquery-1.11.3.min.js"/>"></script>
 <script type="text/javascript">
-	
+
+function updateHorseOwner() {
+	$.ajax({
+		url: 'updateHorseOwner.do',
+		type: 'POST',
+		contentType: "application/xml; charset=UTF-8",
+		datatype: 'xml',
+		success:function(data) {
+			var resultCode = $(data).find("resultCode").text();
+			if (resultCode == "0") {
+				alert("성공");
+			}
+			else {
+				alertErrorMsg(resultCode);
+			}
+		}
+	});
+}
 
 </script>
 
@@ -63,7 +80,7 @@
 
 <div id="contentsDiv">
 
-<a href="">마주정보 업데이트</a>
+<a href="javascript:updateHorseOwner();">마주정보 업데이트</a>
 
 
 

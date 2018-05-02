@@ -1,5 +1,6 @@
 package kr.co.krace.vo;
 
+import java.util.ArrayList;
 import java.util.Date;
 
 
@@ -23,6 +24,8 @@ public class HorseOwnerVO extends AbstractVO {
 	private String clothColor;			// 마주복색
 	private String meet;				// 지역
 	
+	private ArrayList<HorseOwnerOwnVO> ownList;		// 마주 소유말 현황
+	private ArrayList<HorseOwnerVictoryVO> victoryList;	// 마주 대상경주 우승전적
 	
 	public String getId() {
 		return id;
@@ -95,6 +98,18 @@ public class HorseOwnerVO extends AbstractVO {
 	}
 	public void setMeet(String meet) {
 		this.meet = meet;
+	}
+	public ArrayList<HorseOwnerOwnVO> getOwnList() {
+		return ownList;
+	}
+	public void setOwnList(ArrayList<HorseOwnerOwnVO> ownList) {
+		this.ownList = ownList;
+	}
+	public ArrayList<HorseOwnerVictoryVO> getVictoryList() {
+		return victoryList;
+	}
+	public void setVictoryList(ArrayList<HorseOwnerVictoryVO> victoryList) {
+		this.victoryList = victoryList;
 	}
 	
 }

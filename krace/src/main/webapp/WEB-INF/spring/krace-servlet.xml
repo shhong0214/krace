@@ -22,6 +22,9 @@
 	<mvc:resources location="/WEB-INF/resources/smarteditor/" mapping="/smarteditor/**"/>
     
     
+    <mvc:resources location="/WEB-INF/resources/upload/" mapping="/upload/**"/>
+    <mvc:resources location="/WEB-INF/resources/images/" mapping="/images/**"/>
+    
 	<mvc:interceptors>
 		<bean id="webContentInterceptor" class="org.springframework.web.servlet.mvc.WebContentInterceptor">
 			<property name="cacheSeconds" value="0"/>

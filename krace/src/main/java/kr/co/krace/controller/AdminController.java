@@ -2,6 +2,8 @@ package kr.co.krace.controller;
 
 
 
+import java.util.ArrayList;
+
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
@@ -19,6 +21,7 @@ import kr.co.krace.common.KRaceConstants;
 import kr.co.krace.exception.KRaceException;
 import kr.co.krace.security.KRaceAuthenticationException;
 import kr.co.krace.service.AdminService;
+import kr.co.krace.vo.HorseOwnerVO;
 import kr.co.krace.vo.restservice.ResponseVO;
 
 @Controller
@@ -80,25 +83,14 @@ public class AdminController extends BaseController {
 		String resultMessage = "";
 		
 		try {
+			ArrayList<HorseOwnerVO> list = adminService.getHorseOwnerList("1");
 			
-			
-			
-			
-			
-			
-			
-//			List<String> list = (List<String>)selectedIdList.getIdList();
-//			List<Long> memberIdList = new ArrayList<Long>();
-//			for(String s : list) {
-//				memberIdList.add(Long.parseLong(s));
+//			for (HorseOwnerVO vo : list) {
+//				adminService.getHorseOwnerDetail(vo);
 //			}
-//			
-//			if (approve.equals("Y")) {
-//				appMemberAuthService.insertAppMemberAuth(Long.parseLong(appId), memberIdList);
-//			}
-//			else {
-//				appMemberAuthService.deleteAppMemberAuth(Long.parseLong(appId), memberIdList);
-//			}
+			
+			
+			System.out.println(list.size());
 			
 		} catch (Exception e) {
 			ExceptionLogger.logException(logger, e);

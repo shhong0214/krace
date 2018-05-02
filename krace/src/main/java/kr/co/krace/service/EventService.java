@@ -1,13 +1,17 @@
 package kr.co.krace.service;
 
 
+import java.awt.image.BufferedImage;
 import java.io.BufferedOutputStream;
+import java.io.File;
 import java.io.FileOutputStream;
 import java.io.IOException;
+import java.net.URL;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.UUID;
 
+import javax.imageio.ImageIO;
 import javax.servlet.http.HttpServletRequest;
 
 import org.springframework.beans.factory.annotation.Value;
@@ -21,7 +25,7 @@ public class EventService {
 	private Map imageFilesMap;
 	
 	@Value("#{kraceProperties['upload.path']}")
-	 private String uploadPath;
+	private String uploadPath;
 	
 	public EventService() {
 		init();
@@ -94,6 +98,7 @@ public class EventService {
 	   
 
 	}
+	
 
 
 	

@@ -1,6 +1,12 @@
 package kr.co.krace.util;
 
 
+import java.awt.image.BufferedImage;
+import java.io.File;
+import java.net.URL;
+
+import javax.imageio.ImageIO;
+
 import org.springframework.beans.factory.annotation.Value;
 
 
@@ -58,6 +64,24 @@ public class ImageFile {
 
 	public void setFileName(String fileName) {
 		this.fileName = fileName;
+	}
+	
+	public static void getImageFromUrl(String imgUrl, String imgFilePath, String imgFormat)
+	{
+        try
+        {
+            // Image 가져오기
+            BufferedImage image = ImageIO.read(new URL(imgUrl));
+                        
+            // Image 저장할 파일
+            File imgFile = new File(imgFilePath);
+            
+            // Image 저장
+            ImageIO.write(image, imgFormat, imgFile);
+        }
+        catch (Exception e)
+        {
+        }
 	}
 
 	

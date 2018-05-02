@@ -37,8 +37,11 @@ public interface KRaceConstants {
 	public static final String ROLE_ADMIN ="ROLE_ADMIN";
 	public static final String ROLE_USER ="ROLE_USER";
 
-	public static final String UPDATE_HORSEOWNERLIST_LIST = "http://race.kra.co.kr/owner/posessStateHorseownerList.do";
 	
+	public static final String KRA_URL = "http://race.kra.co.kr";
+	
+	public static final String UPDATE_HORSEOWNER_LIST_URL = KRA_URL + "/owner/posessStateHorseownerList.do";
+	public static final String UPDATE_HORSEOWNER_DETAIL_URL = KRA_URL + "/owner/posessStateSoyuHorsesState.do";
 	
 	
 	
