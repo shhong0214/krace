@@ -1,5 +1,6 @@
 package kr.co.krace.service;
 
+import java.io.File;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -8,6 +9,8 @@ import java.util.Map;
 import org.jsoup.nodes.Document;
 import org.jsoup.nodes.Element;
 import org.jsoup.select.Elements;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
 
@@ -25,6 +28,8 @@ public class AdminService {
 	private String imgPath;
 	
 	SimpleDateFormat sdf = new SimpleDateFormat("yyyy/MM/dd");
+	
+	private Logger logger = LoggerFactory.getLogger(getClass());
 	
 	public ArrayList<HorseOwnerVO> getHorseOwnerList(String meet) throws Exception {
 		ArrayList<HorseOwnerVO> list = new ArrayList<HorseOwnerVO>();
@@ -94,15 +99,15 @@ public class AdminService {
     			// 통산 상금
     			vo.setTotlaMoney(tdList.get(9).ownText());
     			
-    			System.out.println("마주: " + vo.getName() + " 상세 정보 가져오기 시작!");
+    			logger.debug("[" + vo.getMeet() + "]마주: " + vo.getName() + " 상세 정보 가져오기");
+    			System.out.println("[" + vo.getMeet() + "]마주: " + vo.getName() + " 상세 정보 가져오기");
     			
     			// 마주 상세 정보
     			HorseOwnerVO details = getHorseOwnerDetail(meet, vo.getId());
     			
+    			vo.setClothColor(details.getClothColor());
     			vo.setOwnList(details.getOwnList());
     			vo.setVictoryList(details.getVictoryList());
-    			
-    			System.out.println("마주: " + vo.getName() + " 상세 정보 가져오기 끝!");
     			
     			list.add(vo);
         	}
@@ -120,25 +125,27 @@ public class AdminService {
         param.put("owNo", owNo);
         
         Document doc = JsoupUtil.post(KRaceConstants.UPDATE_HORSEOWNER_DETAIL_URL, param);
-        
-        // 마주복색
-        Element imgElement = doc.select("table").get(0);
-        if (imgElement.selectFirst("img") != null) {
-        	String imgSrc = imgElement.selectFirst("img").attr("src");
-        	
-        	// 이미지 저장 후 경로 변경
-        	String imgUrl = KRaceConstants.KRA_URL + imgSrc;
-        	
-        	// 이미지 확장자
-        	String imgFormat = imgSrc.substring(imgSrc.indexOf(".")+1);
-        	
-        	String imgFilePath = imgPath + "\\owner_cloth\\" + imgSrc.substring(imgSrc.lastIndexOf("/")+1);
-        	
-        	ImageFile.getImageFromUrl(imgUrl, imgFilePath, imgFormat);
-        	
-        	String clothColor = "/images/owner_cloth/" + imgSrc.substring(imgSrc.lastIndexOf("/")+1);
-        	
-        	horseOwner.setClothColor(clothColor);
+
+        if (!meet.equals("2")) {
+        	// 마주복색
+            Element imgElement = doc.select("table").get(0);
+            if (imgElement.selectFirst("img") != null) {
+            	String imgSrc = imgElement.selectFirst("img").attr("src");
+            	
+            	// 이미지 저장 후 경로 변경
+            	String imgUrl = KRaceConstants.KRA_URL + imgSrc;
+            	
+            	// 이미지 확장자
+            	String imgFormat = imgSrc.substring(imgSrc.indexOf(".")+1);
+            	
+            	String imgFilePath = imgPath + File.separator + "owner_cloth" + File.separator + imgSrc.substring(imgSrc.lastIndexOf("/")+1);
+            	
+            	ImageFile.getImageFromUrl(imgUrl, imgFilePath, imgFormat);
+            	
+            	String clothColor = "/images/owner_cloth/" + imgSrc.substring(imgSrc.lastIndexOf("/")+1);
+            	
+            	horseOwner.setClothColor(clothColor);
+            }
         }
         
         // 마적사항
@@ -146,7 +153,7 @@ public class AdminService {
         
         ArrayList<HorseOwnerOwnVO> ownList = new ArrayList<HorseOwnerOwnVO>();
         
-        if (ownElement.select("tr").size() > 2) {
+        if (ownElement.select("tr").first().select("td").size() > 5) {
 	        for (Element em : ownElement.select("tr")) {
 	        	HorseOwnerOwnVO ownVO = new HorseOwnerOwnVO();
 	
@@ -160,9 +167,30 @@ public class AdminService {
 				ownVO.setHorseOwnerId(owNo);
 				ownVO.setHorseId(id);
 				ownVO.setHorseName(td1.ownText());
-				ownVO.setTrainerName(em.select("td").get(6).ownText());
-				ownVO.setPeriod(em.select("td").get(8).ownText());
-				ownVO.setEtc(em.select("td").get(9).ownText());
+				ownVO.setGrade(em.select("td").get(2).ownText());
+				
+				 if (!meet.equals("2")) {
+					ownVO.setBirthplace(em.select("td").get(3).ownText());
+					ownVO.setSex(em.select("td").get(4).ownText());
+					
+					if (em.select("td").get(5).ownText() != "")
+						ownVO.setAge(Integer.parseInt(em.select("td").get(5).ownText()));
+					
+					ownVO.setTrainerName(em.select("td").get(6).ownText());
+					ownVO.setPeriod(em.select("td").get(8).ownText());
+					ownVO.setEtc(em.select("td").get(9).ownText());
+				}
+				else {
+					ownVO.setBirthplace(em.select("td").get(4).ownText());
+					ownVO.setSex(em.select("td").get(5).ownText());
+					
+					if (em.select("td").get(6).ownText() != "")
+						ownVO.setAge(Integer.parseInt(em.select("td").get(6).ownText()));
+					
+					ownVO.setTrainerName(em.select("td").get(7).ownText());
+					ownVO.setPeriod(em.select("td").get(9).ownText());
+					ownVO.setEtc(em.select("td").get(10).ownText());
+				}
 				
 				ownList.add(ownVO);
 	        }

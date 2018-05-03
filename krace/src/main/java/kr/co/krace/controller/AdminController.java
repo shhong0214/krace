@@ -97,46 +97,53 @@ public class AdminController extends BaseController {
 		int resultCode = 0;
 		String resultMessage = "";
 		
-		String meet = request.getParameter("meet");
-		
-		try {
-			ArrayList<HorseOwnerVO> list = adminService.getHorseOwnerList(meet);
+		for (int i=1; i<4; i++) {
 			
-			ownerService.deleteHorseOwner(meet);
+			if (i == 1) 
+				logger.debug("서울 마주정보 업데이트 시작");
+			if (i == 2)
+				logger.debug("제주 마주정보 업데이트 시작");
+			if (i == 3)
+				logger.debug("부산경남 마주정보 업데이트 시작");
 			
-			for (HorseOwnerVO vo : list) {
-				ownerService.insertHorseOwner(vo);
+			try {
+				ArrayList<HorseOwnerVO> list = adminService.getHorseOwnerList(String.valueOf(i));
 				
-				// 소유 현황
-				ownerOwnService.deleteHorseOwnerOwn(vo.getId());
-				ArrayList<HorseOwnerOwnVO> ownlist = vo.getOwnList();
+				ownerService.deleteHorseOwner(String.valueOf(i));
 				
-				if (ownlist != null) {
-					for (HorseOwnerOwnVO own : ownlist) {
-						if (own != null)
-							ownerOwnService.insertHorseOwnerOwn(own);
+				for (HorseOwnerVO vo : list) {
+					ownerService.insertHorseOwner(vo);
+					
+					// 소유 현황
+					ownerOwnService.deleteHorseOwnerOwn(vo.getId());
+					ArrayList<HorseOwnerOwnVO> ownlist = vo.getOwnList();
+					
+					if (ownlist != null) {
+						for (HorseOwnerOwnVO own : ownlist) {
+							if (own != null)
+								ownerOwnService.insertHorseOwnerOwn(own);
+						}
 					}
+					
+					// 우승 현황
+					ownerVictoryService.deleteHorseOwnerVictory(vo.getId());
+					ArrayList<HorseOwnerVictoryVO> victoryList = vo.getVictoryList();
+					
+					if (victoryList != null) {
+						for (HorseOwnerVictoryVO victory : victoryList) {
+							if (victory != null)
+								ownerVictoryService.insertHorseOwnerVictory(victory);
+						}
+					}
+					
 				}
 				
-				// 우승 현황
-				ownerVictoryService.deleteHorseOwnerVictory(vo.getId());
-				ArrayList<HorseOwnerVictoryVO> victoryList = vo.getVictoryList();
-				
-				if (victoryList != null) {
-					for (HorseOwnerVictoryVO victory : victoryList) {
-						if (victory != null)
-							ownerVictoryService.insertHorseOwnerVictory(victory);
-					}
-				}
-				
+			} catch (Exception e) {
+				ExceptionLogger.logException(logger, e);
+				resultCode = KRaceException.SERVER_ERROR;
+				resultMessage = e.getMessage();			
 			}
-			
-			System.out.println(list.size());
-			
-		} catch (Exception e) {
-			ExceptionLogger.logException(logger, e);
-			resultCode = KRaceException.SERVER_ERROR;
-			resultMessage = e.getMessage();			
+		
 		}
 		
 		return new ResponseVO(Integer.toString(resultCode), resultMessage);		

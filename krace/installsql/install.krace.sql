@@ -35,6 +35,10 @@ CREATE TABLE `kra`.`horseowner_own` (
 	`horseownerid` VARCHAR(10) NOT NULL ,	
 	`horseid` VARCHAR(10) NOT NULL ,	
 	`horsename` VARCHAR(50),
+	`grade` VARCHAR(10),
+	`birthplace` VARCHAR(20),
+	`sex` VARCHAR(10),
+	`age` INT,
 	`trainername` VARCHAR(50),
 	`period` VARCHAR(50),
 	`etc` VARCHAR(100)

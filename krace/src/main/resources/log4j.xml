@@ -21,7 +21,7 @@
 	</appender>
 
 	<!-- Application Loggers -->
-	<logger name="com.hs.framework.mobile.mdm"  additivity="false">
+	<logger name="kr.co.krace"  additivity="false">
 		<level value="debug" />
 		<!-- 
 		<appender-ref ref="console"/>

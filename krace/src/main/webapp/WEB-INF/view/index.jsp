@@ -7,11 +7,9 @@
 <head>
 <title>KRace</title>
 <script type="text/javascript" src="<c:url value="/js/jquery-1.11.3.min.js"/>"></script>
-<script type="text/javascript">
-	
+<script>
 
 </script>
-
 </head>
 
 <body>
@@ -41,7 +39,27 @@
 				<li><a href="">경주마정보</a></li>
 				<li><a href="">기수정보</a></li>
 				<li><a href="">조교사정보</a></li>
-				<li><a href="horseownerList/1">마주정보</a></li>
+				<li><a href="horseownerList.do?meet=1">마주정보</a></li>
+			</ul>
+		</li>
+		<li><a href="">제주경마정보</a>
+			<ul>
+				<li><a href="">출전표</a></li>
+				<li><a href="">경주성적</a></li>
+				<li><a href="">경주마정보</a></li>
+				<li><a href="">기수정보</a></li>
+				<li><a href="">조교사정보</a></li>
+				<li><a href="horseownerList.do?meet=2">마주정보</a></li>
+			</ul>
+		</li>
+		<li><a href="">부산경남경마정보</a>
+			<ul>
+				<li><a href="">출전표</a></li>
+				<li><a href="">경주성적</a></li>
+				<li><a href="">경주마정보</a></li>
+				<li><a href="">기수정보</a></li>
+				<li><a href="">조교사정보</a></li>
+				<li><a href="horseownerList.do?meet=3">마주정보</a></li>
 			</ul>
 		</li>
 		<li><a href="">운영자메뉴</a>
