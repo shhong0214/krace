@@ -20,6 +20,7 @@ import kr.co.krace.util.JsoupUtil;
 import kr.co.krace.vo.HorseOwnerOwnVO;
 import kr.co.krace.vo.HorseOwnerVO;
 import kr.co.krace.vo.HorseOwnerVictoryVO;
+import kr.co.krace.vo.TrainerVO;
 
 @Service
 public class AdminService {
@@ -30,6 +31,125 @@ public class AdminService {
 	SimpleDateFormat sdf = new SimpleDateFormat("yyyy/MM/dd");
 	
 	private Logger logger = LoggerFactory.getLogger(getClass());
+	
+	public ArrayList<TrainerVO> getTrainerList(String meet) throws Exception {
+		ArrayList<TrainerVO> list = new ArrayList<TrainerVO>();
+		
+		Map<String, String> param = new HashMap<String, String>();
+        param.put("meet", meet);
+		
+        Document doc = JsoupUtil.post(KRaceConstants.UPDATE_TRAINER_LIST_URL, param);
+		
+        Element table = doc.select("table tbody").first();
+        Elements trList = table.select("tr");
+        
+        for (Element tr : trList) {
+        	Elements tdList = tr.select("td");
+        	
+        	TrainerVO vo = new TrainerVO();
+        	
+        	for (int i=1; i<tdList.size(); i++) {
+        		if (i == 1) {
+        			Element td1 = tdList.get(i).select("a").first();
+        			
+        			// ID
+        			String id = td1.attr("onclick");
+        			id = id.substring(id.indexOf("'")+1);
+        			id = id.substring(0, id.indexOf("'"));
+        			
+        			vo.setId(id);
+        			
+        			// 조교사명
+        			vo.setName(td1.ownText());
+        		}
+         		
+        		// 소속조
+				if (i == 2)	vo.setJo(tdList.get(i).ownText());
+				
+				// 데뷔일자
+				if (i == 3) {
+					if (tdList.get(i).ownText() != "")
+						vo.setDebutDate(sdf.parse(tdList.get(i).ownText()));
+				}
+				
+				// 최근1년전적
+				if (i == 4)	vo.setNewRecord(tdList.get(i).ownText());
+				
+				// 통산전적
+				if (i == 5) vo.setTotalRecord(tdList.get(i).ownText());
+				
+				// 위탁관리두수
+				if (i == 6) vo.setHorseCnt(Integer.parseInt(tdList.get(i).ownText()));
+        		
+        	}
+        	
+        	// 조교사 상세 정보
+        	TrainerVO details = getTrainerDetail(meet, vo.getId());
+        	
+        	vo.setTotalRecord2(details.getTotalRecord2());
+        	vo.setTotalS(details.getTotalS());
+        	vo.setTotalBs(details.getTotalBs());
+        	vo.setTotalYs(details.getTotalYs());
+        	vo.setNewRecord2(details.getNewRecord2());
+            vo.setNewS(details.getNewS());
+            vo.setNewBs(details.getNewBs());
+            vo.setNewYs(details.getNewYs());
+        	vo.setMeet(meet);
+            
+        	list.add(vo);
+        }
+        
+		return list;
+	}
+	
+	
+	public TrainerVO getTrainerDetail(String meet, String trainerId) throws Exception {
+		TrainerVO trainer = new TrainerVO();
+		
+		Map<String, String> param = new HashMap<String, String>();
+        param.put("meet", meet);
+        param.put("trNo", trainerId);
+        
+        Document doc = JsoupUtil.post(KRaceConstants.UPDATE_TRAINER_DETAIL_URL, param);
+		
+        Element contents = doc.select("#contents").first();
+        
+        // 사진 가져오기
+        if (contents.select(".profile img") != null) {
+        	String imgSrc = contents.select(".profile img").first().attr("src");
+            
+            
+            // 이미지 저장 후 경로 변경
+           	String imgUrl = KRaceConstants.KRA_URL + imgSrc;
+           	
+           	// 이미지 확장자
+           	String imgFormat = imgSrc.substring(imgSrc.indexOf(".")+1);
+           	
+           	String imgFilePath = imgPath + File.separator + "trainer" + File.separator + imgSrc.substring(imgSrc.lastIndexOf("/")+1);
+           	
+           	ImageFile.getImageFromUrl(imgUrl, imgFilePath, imgFormat);
+           	
+           	String photo = "/images/trainer/" + imgSrc.substring(imgSrc.lastIndexOf("/")+1);
+           	
+           	trainer.setPhoto(photo);
+        }
+        
+        // 통산전적 (승률, 복승률, 연승률)
+        Elements result = contents.select("table").get(0).select("tr");
+        
+        trainer.setTotalRecord2(result.get(0).select("td").get(0).ownText());
+        trainer.setTotalS(result.get(0).select("td").get(1).ownText());
+        trainer.setTotalBs(result.get(0).select("td").get(2).ownText());
+        trainer.setTotalYs(result.get(0).select("td").get(3).ownText());
+        
+        // 최근1년 전적 (승률, 복승률, 연승률)
+        trainer.setNewRecord2(result.get(1).select("td").get(0).ownText());
+        trainer.setNewS(result.get(1).select("td").get(1).ownText());
+        trainer.setNewBs(result.get(1).select("td").get(2).ownText());
+        trainer.setNewYs(result.get(1).select("td").get(3).ownText());
+     
+		return trainer;
+	}
 	
 	public ArrayList<HorseOwnerVO> getHorseOwnerList(String meet) throws Exception {
 		ArrayList<HorseOwnerVO> list = new ArrayList<HorseOwnerVO>();

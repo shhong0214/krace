@@ -33,6 +33,30 @@ function updateHorseOwner() {
 	});
 }
 
+function updateTrainer() {
+	
+	$("#statusDiv").html("업데이트 중입니다. 잠시만 기다리세요...");
+	
+	$.ajax({
+		url: 'updateTrainer.do',
+		type: 'POST',
+		data: {
+			meet: "1"
+		},
+		success:function(data) {
+			var resultCode = $(data).find("resultCode").text();
+			if (resultCode == "0") {
+				alert("성공");
+				$("#statusDiv").html("");
+			}
+			else {
+				alertErrorMsg(resultCode);
+				$("#statusDiv").html("");
+			}
+		}
+	});
+}
+
 </script>
 
 </head>
@@ -106,8 +130,8 @@ function updateHorseOwner() {
 
 <div id="contentsDiv">
 
-<a href="javascript:updateHorseOwner();">마주정보 업데이트</a>
-
+<a href="javascript:updateHorseOwner();">마주 정보 업데이트</a>
+<a href="javascript:updateTrainer();">조교사 정보 업데이트</a>
 
 
 <div id="statusDiv"></div>

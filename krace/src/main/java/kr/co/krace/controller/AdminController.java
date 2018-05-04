@@ -24,9 +24,11 @@ import kr.co.krace.service.AdminService;
 import kr.co.krace.service.HorseOwnerOwnService;
 import kr.co.krace.service.HorseOwnerService;
 import kr.co.krace.service.HorseOwnerVictoryService;
+import kr.co.krace.service.TrainerService;
 import kr.co.krace.vo.HorseOwnerOwnVO;
 import kr.co.krace.vo.HorseOwnerVO;
 import kr.co.krace.vo.HorseOwnerVictoryVO;
+import kr.co.krace.vo.TrainerVO;
 import kr.co.krace.vo.restservice.ResponseVO;
 
 @Controller
@@ -43,6 +45,9 @@ public class AdminController extends BaseController {
 	
 	@Autowired
 	HorseOwnerVictoryService ownerVictoryService;
+	
+	@Autowired
+	TrainerService trainerService;
 	
 	
 	@RequestMapping(value="/dataManagement", method=RequestMethod.GET)
@@ -148,4 +153,45 @@ public class AdminController extends BaseController {
 		
 		return new ResponseVO(Integer.toString(resultCode), resultMessage);		
 	}
+	
+	
+	@RequestMapping(value="/updateTrainer.do", method=RequestMethod.POST)
+	public @ResponseBody ResponseVO updateTrainer(HttpServletRequest request)
+	{
+		int resultCode = 0;
+		String resultMessage = "";
+		
+		for (int i=1; i<4; i++) {
+			
+			if (i == 1) 
+				logger.debug("서울 마주정보 업데이트 시작");
+			if (i == 2)
+				logger.debug("제주 마주정보 업데이트 시작");
+			if (i == 3)
+				logger.debug("부산경남 마주정보 업데이트 시작");
+			
+		
+			try {
+				ArrayList<TrainerVO> list = adminService.getTrainerList(String.valueOf(i));
+				
+				trainerService.deleteTrainer(String.valueOf(i));
+				
+				for (TrainerVO trainer : list) {
+					trainerService.insertTrainer(trainer);
+					
+					System.out.println(trainer.getName());
+					
+				}
+				
+			} catch (Exception e) {
+				ExceptionLogger.logException(logger, e);
+				resultCode = KRaceException.SERVER_ERROR;
+				resultMessage = e.getMessage();			
+			}
+		
+		}
+		
+		return new ResponseVO(Integer.toString(resultCode), resultMessage);		
+	}
+	
 }

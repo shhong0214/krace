@@ -43,6 +43,7 @@ public interface KRaceConstants {
 	public static final String UPDATE_HORSEOWNER_LIST_URL = KRA_URL + "/owner/posessStateHorseownerList.do";
 	public static final String UPDATE_HORSEOWNER_DETAIL_URL = KRA_URL + "/owner/posessStateSoyuHorsesState.do";
 	
-	
+	public static final String UPDATE_TRAINER_LIST_URL = KRA_URL + "/trainer/profileTrainerList.do";
+	public static final String UPDATE_TRAINER_DETAIL_URL = KRA_URL + "/trainer/profileTrainerPersonItem.do";
 	
 }

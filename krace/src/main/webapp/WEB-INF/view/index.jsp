@@ -38,7 +38,7 @@
 				<li><a href="">경주성적</a></li>
 				<li><a href="">경주마정보</a></li>
 				<li><a href="">기수정보</a></li>
-				<li><a href="">조교사정보</a></li>
+				<li><a href="trainerList.do?meet=1">조교사정보</a></li>
 				<li><a href="horseownerList.do?meet=1">마주정보</a></li>
 			</ul>
 		</li>
@@ -48,7 +48,7 @@
 				<li><a href="">경주성적</a></li>
 				<li><a href="">경주마정보</a></li>
 				<li><a href="">기수정보</a></li>
-				<li><a href="">조교사정보</a></li>
+				<li><a href="trainerList.do?meet=2">조교사정보</a></li>
 				<li><a href="horseownerList.do?meet=2">마주정보</a></li>
 			</ul>
 		</li>
@@ -58,7 +58,7 @@
 				<li><a href="">경주성적</a></li>
 				<li><a href="">경주마정보</a></li>
 				<li><a href="">기수정보</a></li>
-				<li><a href="">조교사정보</a></li>
+				<li><a href="trainerList.do?meet=3">조교사정보</a></li>
 				<li><a href="horseownerList.do?meet=3">마주정보</a></li>
 			</ul>
 		</li>

@@ -10,5 +10,6 @@
 	<sqlMap resource="kr/co/krace/dao/sqlmap/${jdbc.db.type}/horseowner.xml"/>
 	<sqlMap resource="kr/co/krace/dao/sqlmap/${jdbc.db.type}/horseowner_own.xml"/>
  	<sqlMap resource="kr/co/krace/dao/sqlmap/${jdbc.db.type}/horseowner_victory.xml"/>
+ 	<sqlMap resource="kr/co/krace/dao/sqlmap/${jdbc.db.type}/trainer.xml"/>
  	
 </sqlMapConfig>

@@ -2,6 +2,7 @@ DROP TABLE IF EXISTS `kra`.`kra_member`;
 DROP TABLE IF EXISTS `kra`.`horseowner`;
 DROP TABLE IF EXISTS `kra`.`horseowner_own`;
 DROP TABLE IF EXISTS `kra`.`horseowner_victory`;
+DROP TABLE IF EXISTS `kra`.`trainer`;
 
 CREATE TABLE `kra`.`kra_member` (
 	`memberid` VARCHAR(50) NOT NULL ,
@@ -26,7 +27,7 @@ CREATE TABLE `kra`.`horseowner` (
 	`newmoney` VARCHAR(50),
 	`totalrecord` VARCHAR(50),
 	`totalmoney` VARCHAR(50),
-	`clothcolor` VARCHAR(50),
+	`clothcolor` VARCHAR(100),
 	`meet` VARCHAR(5),
 	PRIMARY KEY (`id`)
 );
@@ -52,4 +53,25 @@ CREATE TABLE `kra`.`horseowner_victory` (
 	`horsename` VARCHAR(50)
 );
 
+
+CREATE TABLE `kra`.trainer (
+	`id` VARCHAR(10),	
+	`name` VARCHAR(50),	
+	`jo` VARCHAR(10),
+	`debutdate` DATETIME,
+	`newrecord` VARCHAR(50),
+	`totalrecord` VARCHAR(50),
+	`horsecnt` INT,
+	`photo` VARCHAR(100),
+	`birthday` VARCHAR(50),
+	`newrecord2` VARCHAR(50),
+	`totalrecord2` VARCHAR(50),
+	`totals` VARCHAR(50),
+	`news` VARCHAR(50),
+	`totalbs` VARCHAR(50),
+	`newbs` VARCHAR(50),
+	`totalys` VARCHAR(50),
+	`newys` VARCHAR(50),
+	`meet` VARCHAR(5)
+);
 
